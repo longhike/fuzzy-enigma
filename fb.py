@@ -1,4 +1,5 @@
 import requests as R
+import json
 
 class Facebook:
     
@@ -12,15 +13,17 @@ class Facebook:
     def my_info(self):
         query='me?fields=id,name&'
         token_string=self.__set_auth()
-        return R.get(f'{self.url}{query}{token_string}').json()
-    
+        json_response=R.get(f'{self.url}{query}{token_string}').json()
+        return json.dumps(json_response, indent=4, sort_keys=True)
+
     def my_posts(self):
         query='me?fields=id,name,posts&'
         token_string=self.__set_auth()
-        return R.get(f'{self.url}{query}{token_string}').json()
+        json_response=R.get(f'{self.url}{query}{token_string}').json()
+        return json.dumps(json_response, indent=4, sort_keys=True)
 
     def my_friends(self):
         query='me?fields=id,name,friends&'
         token_string=self.__set_auth()
-        return R.get(f'{self.url}{query}{token_string}').json()
-        
+        json_response=R.get(f'{self.url}{query}{token_string}').json()
+        return json.dumps(json_response, indent=4, sort_keys=True)
