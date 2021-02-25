@@ -7,7 +7,7 @@ test_name='ruleofpaw'
 
 def fb_fun(token):
     test = Facebook(token)
-    pprint.pp(test.my_info())
+    print(test.my_info())
 
 def tw_fun(token,username):
     test = Twitter(token)
