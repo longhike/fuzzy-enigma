@@ -1,4 +1,3 @@
-import pprint
 from auth import FB_TOKEN, TW_BEARER_TOKEN
 from fb import Facebook
 from tw import Twitter

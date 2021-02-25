@@ -21,12 +21,12 @@ class Twitter:
     @staticmethod
     def __make_request(url, headers, params=None):
         if params:
-            response = R.request("GET", url, headers=headers, params=params)
+            response = R.get(url, headers=headers, params=params)
             if response.status_code != 200:
                 raise Exception(f'Request returned an error: {response.status_code} {response.text}')
             return response.json()
         else:
-            response = R.request("GET", url, headers=headers)
+            response = R.get(url, headers=headers)
             if response.status_code != 200:
                 raise Exception(f'Request returned an error: {response.status_code} {response.text}')
             return response.json()
